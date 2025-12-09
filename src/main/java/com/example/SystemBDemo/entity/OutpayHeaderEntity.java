@@ -1,49 +1,89 @@
 package com.example.SystemBDemo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "outpay_header")
 public class OutpayHeaderEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
-    private String clntnum;
-    private String chrdnum;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name="clntnum")
+    private String clntNum;
+
+    @Column(name="chdrnum")
+    private String chrdNum;
+
+    @Column(name="lettertype")
     private String letterType;
+
+    @Column(name="printdate")
     private LocalDateTime printDate;
-    private String dataID;
+
+    @Column(name="dataid")
+    private String dataId;
+
+    @Column(name="clntname")
     private String clntName;
+
+    @Column(name="clntaddress")
     private String clntAddress;
+
+    @Column(name="regdate")
     private LocalDateTime regDate;
+
+    @Column(name="benpercent")
     private BigDecimal benPercent;
+
+    @Column(name="role1")
     private String role1;
+
+    @Column(name="role2")
     private String role2;
+
+    @Column(name="cownnum")
     private String cownNum;
+
+    @Column(name="cownname")
     private String cownName;
+
+    @Column(name="notice01")
     private String notice01;
+
+    @Column(name="notice02")
     private String notice02;
+
+    @Column(name="notice03")
     private String notice03;
+
+    @Column(name="notice04")
     private String notice04;
+
+    @Column(name="notice05")
     private String notice05;
+
+    @Column(name="notice06")
     private String notice06;
-    private String claim_ID;
+
+    @Column(name="claim_id")
+    private String claim_Id;
+
+    @Column(name="tp2processdate")
     private LocalDateTime tP2ProcessDate;
 
     public OutpayHeaderEntity() {}
 
     public OutpayHeaderEntity(String clntnum, String chrdnum, String letterType, LocalDateTime printDate, String dataID, String clntName, String clntAddress, LocalDateTime regDate, BigDecimal benPercent, String role1, String role2, String cownNum, String cownName, String notice01, String notice02, String notice03, String notice04, String notice05, String notice06, String claim_ID, LocalDateTime tP2ProcessDate) {
-        this.clntnum = clntnum;
-        this.chrdnum = chrdnum;
+        this.clntNum = clntnum;
+        this.chrdNum = chrdnum;
         this.letterType = letterType;
         this.printDate = printDate;
-        this.dataID = dataID;
+        this.dataId = dataID;
         this.clntName = clntName;
         this.clntAddress = clntAddress;
         this.regDate = regDate;
@@ -58,24 +98,24 @@ public class OutpayHeaderEntity {
         this.notice04 = notice04;
         this.notice05 = notice05;
         this.notice06 = notice06;
-        this.claim_ID = claim_ID;
+        this.claim_Id = claim_ID;
         this.tP2ProcessDate = tP2ProcessDate;
     }
 
-    public String getClntnum() {
-        return clntnum;
+    public String getClntNum() {
+        return clntNum;
     }
 
-    public void setClntnum(String clntnum) {
-        this.clntnum = clntnum;
+    public void setClntNum(String clntNum) {
+        this.clntNum = clntNum;
     }
 
-    public String getChrdnum() {
-        return chrdnum;
+    public String getChrdNum() {
+        return chrdNum;
     }
 
-    public void setChrdnum(String chrdnum) {
-        this.chrdnum = chrdnum;
+    public void setChrdNum(String chrdNum) {
+        this.chrdNum = chrdNum;
     }
 
     public String getLetterType() {
@@ -94,12 +134,12 @@ public class OutpayHeaderEntity {
         this.printDate = printDate;
     }
 
-    public String getDataID() {
-        return dataID;
+    public String getDataId() {
+        return dataId;
     }
 
-    public void setDataID(String dataID) {
-        this.dataID = dataID;
+    public void setDataId(String dataId) {
+        this.dataId = dataId;
     }
 
     public String getClntName() {
@@ -214,12 +254,12 @@ public class OutpayHeaderEntity {
         this.notice06 = notice06;
     }
 
-    public String getClaim_ID() {
-        return claim_ID;
+    public String getClaim_Id() {
+        return claim_Id;
     }
 
-    public void setClaim_ID(String claim_ID) {
-        this.claim_ID = claim_ID;
+    public void setClaim_Id(String claim_Id) {
+        this.claim_Id = claim_Id;
     }
 
     public LocalDateTime gettP2ProcessDate() {
@@ -234,11 +274,11 @@ public class OutpayHeaderEntity {
     public String toString() {
         return "OutpayHeaderDTO{" +
                 "id='" + id + '\'' +
-                ", clntnum='" + clntnum + '\'' +
-                ", chrdnum='" + chrdnum + '\'' +
+                ", clntNum='" + clntNum + '\'' +
+                ", chrdNum='" + chrdNum + '\'' +
                 ", letterType='" + letterType + '\'' +
                 ", printDate=" + printDate +
-                ", dataID='" + dataID + '\'' +
+                ", dataId='" + dataId + '\'' +
                 ", clntName='" + clntName + '\'' +
                 ", clntAddress='" + clntAddress + '\'' +
                 ", regDate=" + regDate +
@@ -253,7 +293,7 @@ public class OutpayHeaderEntity {
                 ", notice04='" + notice04 + '\'' +
                 ", notice05='" + notice05 + '\'' +
                 ", notice06='" + notice06 + '\'' +
-                ", claim_ID='" + claim_ID + '\'' +
+                ", claim_Id='" + claim_Id + '\'' +
                 ", tP2ProcessDate=" + tP2ProcessDate +
                 '}';
     }

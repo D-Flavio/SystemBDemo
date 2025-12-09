@@ -1,49 +1,57 @@
 package com.example.SystemBDemo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "survalues")
 public class ZTPSPFEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
-    private String chdrnum;
-    private BigDecimal survalue;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name="chdrnum")
+    private String chdrNum;
+
+    @Column(name="survalue")
+    private BigDecimal surValue;
+
+    @Column(name="company")
     private String company;
+
+    @Column(name="currency")
     private String currency;
+
+    @Column(name="validdate")
     private LocalDateTime validDate;
 
     public ZTPSPFEntity() {}
 
-    public ZTPSPFEntity(String chdrnum, BigDecimal survalue, String company, String currency, LocalDateTime validDate) {
-        this.chdrnum = chdrnum;
-        this.survalue = survalue;
+    public ZTPSPFEntity(String chdrNum, BigDecimal surValue, String company, String currency, LocalDateTime validDate) {
+        this.chdrNum = chdrNum;
+        this.surValue = surValue;
         this.company = company;
         this.currency = currency;
         this.validDate = validDate;
     }
 
-    public String getChdrnum() {
-        return chdrnum;
+    public String getChdrNum() {
+        return chdrNum;
     }
 
-    public void setChdrnum(String chdrnum) {
-        this.chdrnum = chdrnum;
+    public void setChdrNum(String chdrNum) {
+        this.chdrNum = chdrNum;
     }
 
-    public BigDecimal getSurvalue() {
-        return survalue;
+    public BigDecimal getSurValue() {
+        return surValue;
     }
 
-    public void setSurvalue(BigDecimal survalue) {
-        this.survalue = survalue;
+    public void setSurValue(BigDecimal surValue) {
+        this.surValue = surValue;
     }
 
     public String getCompany() {
@@ -74,8 +82,8 @@ public class ZTPSPFEntity {
     public String toString() {
         return "ZTPSPFDTO{" +
                 "id='" + id + '\'' +
-                ", chdrnum='" + chdrnum + '\'' +
-                ", survalue=" + survalue +
+                ", chdrNum='" + chdrNum + '\'' +
+                ", surValue=" + surValue +
                 ", company='" + company + '\'' +
                 ", currency='" + currency + '\'' +
                 ", validDate=" + validDate +

@@ -1,52 +1,66 @@
 package com.example.SystemBDemo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "policy")
 public class CustomerCompanyPolicyEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private int id;
-    private String chdrnum;
-    private String cownnum;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(name="chdrnum")
+    private String chdrNum;
+
+    @Column(name="cownnum")
+    private String cownNum;
+
+    @Column(name="ownername")
     private String ownerName;
+
+    @Column(name="lifcnum")
     private String lifcNum;
+
+    @Column(name="lifcname")
     private String lifcName;
+
+    @Column(name="aracde")
     private String aracde;
-    private String agntnum;
+
+    @Column(name="agntnum")
+    private String agntNum;
+
+    @Column(name="mailaddress")
     private String mailAddress;
 
     public CustomerCompanyPolicyEntity() {}
 
     public CustomerCompanyPolicyEntity(String chdrnum, String cownnum, String ownerName, String lifcNum, String lifcName, String aracde, String agntnum, String mailAddress) {
-        this.chdrnum = chdrnum;
-        this.cownnum = cownnum;
+        this.chdrNum = chdrnum;
+        this.cownNum = cownnum;
         this.ownerName = ownerName;
         this.lifcNum = lifcNum;
         this.lifcName = lifcName;
         this.aracde = aracde;
-        this.agntnum = agntnum;
+        this.agntNum = agntnum;
         this.mailAddress = mailAddress;
     }
 
-    public String getChdrnum() {
-        return chdrnum;
+    public String getChdrNum() {
+        return chdrNum;
     }
 
-    public void setChdrnum(String chdrnum) {
-        this.chdrnum = chdrnum;
+    public void setChdrNum(String chdrNum) {
+        this.chdrNum = chdrNum;
     }
 
-    public String getCownnum() {
-        return cownnum;
+    public String getCownNum() {
+        return cownNum;
     }
 
-    public void setCownnum(String cownnum) {
-        this.cownnum = cownnum;
+    public void setCownNum(String cownNum) {
+        this.cownNum = cownNum;
     }
 
     public String getOwnerName() {
@@ -81,12 +95,12 @@ public class CustomerCompanyPolicyEntity {
         this.aracde = aracde;
     }
 
-    public String getAgntnum() {
-        return agntnum;
+    public String getAgntNum() {
+        return agntNum;
     }
 
-    public void setAgntnum(String agntnum) {
-        this.agntnum = agntnum;
+    public void setAgntNum(String agntNum) {
+        this.agntNum = agntNum;
     }
 
     public String getMailAddress() {
@@ -101,13 +115,13 @@ public class CustomerCompanyPolicyEntity {
     public String toString() {
         return "CustomerCompanyPolicyDTO{" +
                 "id='" + id + '\'' +
-                ", chdrnum='" + chdrnum + '\'' +
-                ", cownnum='" + cownnum + '\'' +
+                ", chdrNum='" + chdrNum + '\'' +
+                ", cownNum='" + cownNum + '\'' +
                 ", ownerName='" + ownerName + '\'' +
                 ", lifcNum='" + lifcNum + '\'' +
                 ", lifcName='" + lifcName + '\'' +
                 ", aracde='" + aracde + '\'' +
-                ", agntnum='" + agntnum + '\'' +
+                ", agntNum='" + agntNum + '\'' +
                 ", mailAddress='" + mailAddress + '\'' +
                 '}';
     }

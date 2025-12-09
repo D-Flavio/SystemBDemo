@@ -4,12 +4,12 @@ USE systembdatabase;
 
 
 CREATE TABLE `systembdatabase`.`survalues` (
-                                               `Id` INT NOT NULL,
-                                               `ChdrNum` CHAR(8) NOT NULL,
-                                               `SurValue` DECIMAL(15,2) NOT NULL,
-                                               `Company` CHAR(1) NOT NULL,
-                                               `Currency` CHAR(3) NULL,
-                                               `ValidDate` CHAR(10) NULL,
+                                               `id` INT NOT NULL,
+                                               `chdrnum` CHAR(8) NOT NULL,
+                                               `survalue` DECIMAL(15,2) NOT NULL,
+                                               `company` CHAR(1) NOT NULL,
+                                               `currency` CHAR(3) NULL,
+                                               `validdate` CHAR(10) NULL,
                                                PRIMARY KEY (`Id`));
 
 CREATE TABLE `systembdatabase`.`policy` (

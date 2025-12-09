@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS systemadatabase;
-CREATE DATABASE systemadatabase;
-USE systemadatabase;
+DROP DATABASE IF EXISTS systembdatabase;
+CREATE DATABASE systembdatabase;
+USE systembdatabase;
 
 
 CREATE TABLE `systemadatabase`.`survalues` (

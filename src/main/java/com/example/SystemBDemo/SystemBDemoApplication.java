@@ -8,6 +8,8 @@ public class SystemBDemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SystemBDemoApplication.class, args);
+
+		System.out.println("SystemBDemo Application Started");
 	}
 
 }

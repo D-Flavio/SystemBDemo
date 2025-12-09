@@ -1,7 +1,16 @@
 package com.example.SystemBDemo.entity;
 
-public class CustomerCompanyPolicyEntity extends BaseEntity {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
+public class CustomerCompanyPolicyEntity {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
     private String chdrnum;
     private String cownnum;
     private String ownerName;
@@ -10,6 +19,8 @@ public class CustomerCompanyPolicyEntity extends BaseEntity {
     private String aracde;
     private String agntnum;
     private String mailAddress;
+
+    public CustomerCompanyPolicyEntity() {}
 
     public CustomerCompanyPolicyEntity(String chdrnum, String cownnum, String ownerName, String lifcNum, String lifcName, String aracde, String agntnum, String mailAddress) {
         this.chdrnum = chdrnum;
@@ -89,7 +100,7 @@ public class CustomerCompanyPolicyEntity extends BaseEntity {
     @Override
     public String toString() {
         return "CustomerCompanyPolicyDTO{" +
-                "id='" + getId() + '\'' +
+                "id='" + id + '\'' +
                 ", chdrnum='" + chdrnum + '\'' +
                 ", cownnum='" + cownnum + '\'' +
                 ", ownerName='" + ownerName + '\'' +

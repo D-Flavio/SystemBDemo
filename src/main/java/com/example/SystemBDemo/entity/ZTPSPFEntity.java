@@ -1,15 +1,26 @@
 package com.example.SystemBDemo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class ZTPSPFEntity extends BaseEntity {
+@Entity
+public class ZTPSPFEntity {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
     private String chdrnum;
     private BigDecimal survalue;
     private String company;
     private String currency;
     private LocalDateTime validDate;
+
+    public ZTPSPFEntity() {}
 
     public ZTPSPFEntity(String chdrnum, BigDecimal survalue, String company, String currency, LocalDateTime validDate) {
         this.chdrnum = chdrnum;
@@ -62,7 +73,7 @@ public class ZTPSPFEntity extends BaseEntity {
     @Override
     public String toString() {
         return "ZTPSPFDTO{" +
-                "id='" + getId() + '\'' +
+                "id='" + id + '\'' +
                 ", chdrnum='" + chdrnum + '\'' +
                 ", survalue=" + survalue +
                 ", company='" + company + '\'' +

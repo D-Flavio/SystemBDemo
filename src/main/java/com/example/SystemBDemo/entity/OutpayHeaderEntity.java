@@ -1,10 +1,19 @@
 package com.example.SystemBDemo.entity;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-public class OutpayHeaderEntity extends BaseEntity {
+@Entity
+public class OutpayHeaderEntity {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
     private String clntnum;
     private String chrdnum;
     private String letterType;
@@ -26,6 +35,8 @@ public class OutpayHeaderEntity extends BaseEntity {
     private String notice06;
     private String claim_ID;
     private LocalDateTime tP2ProcessDate;
+
+    public OutpayHeaderEntity() {}
 
     public OutpayHeaderEntity(String clntnum, String chrdnum, String letterType, LocalDateTime printDate, String dataID, String clntName, String clntAddress, LocalDateTime regDate, BigDecimal benPercent, String role1, String role2, String cownNum, String cownName, String notice01, String notice02, String notice03, String notice04, String notice05, String notice06, String claim_ID, LocalDateTime tP2ProcessDate) {
         this.clntnum = clntnum;
@@ -222,7 +233,7 @@ public class OutpayHeaderEntity extends BaseEntity {
     @Override
     public String toString() {
         return "OutpayHeaderDTO{" +
-                "id='" + getId() + '\'' +
+                "id='" + id + '\'' +
                 ", clntnum='" + clntnum + '\'' +
                 ", chrdnum='" + chrdnum + '\'' +
                 ", letterType='" + letterType + '\'' +

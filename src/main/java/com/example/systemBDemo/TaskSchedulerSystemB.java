@@ -9,7 +9,6 @@ import com.example.systemBDemo.repository.ZTPSPFRepository;
 import com.example.systemBDemo.service.CsvImportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -24,19 +23,22 @@ import java.util.List;
 @Component
 public class TaskSchedulerSystemB {
 
-    @Autowired
-    private CsvImportService csvImportService;
+    private final CsvImportService csvImportService;
 
-    @Autowired
-    private CustomerCompanyPolicyRepository customerCompanyPolicyRepository;
+    private final CustomerCompanyPolicyRepository customerCompanyPolicyRepository;
 
-    @Autowired
-    private OutpayHeaderRepository outpayHeaderRepository;
+    private final OutpayHeaderRepository outpayHeaderRepository;
 
-    @Autowired
-    private ZTPSPFRepository ztpspfRepository;
+    private final ZTPSPFRepository ztpspfRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(TaskSchedulerSystemB.class);
+
+    public TaskSchedulerSystemB(CsvImportService csvImportService, CustomerCompanyPolicyRepository customerCompanyPolicyRepository, OutpayHeaderRepository outpayHeaderRepository, ZTPSPFRepository ztpspfRepository) {
+        this.csvImportService = csvImportService;
+        this.customerCompanyPolicyRepository = customerCompanyPolicyRepository;
+        this.outpayHeaderRepository = outpayHeaderRepository;
+        this.ztpspfRepository = ztpspfRepository;
+    }
 
     @Scheduled(cron = "0 0 13 * * MON-FRI", zone = "Europe/Paris")
     public void importAndPersist() {

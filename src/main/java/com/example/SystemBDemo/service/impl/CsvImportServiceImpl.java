@@ -17,6 +17,7 @@ import java.util.List;
 @Service
 public class CsvImportServiceImpl implements CsvImportService {
 
+    //TODO problem: linebreak is being read as an entry.
     public List<String[]> importCsvData(Path filePath, char separator) {
         try (Reader reader = Files.newBufferedReader(filePath, Charset.forName("ISO-8859-2"))) {
             CSVParser parser = new CSVParserBuilder()

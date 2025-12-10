@@ -37,8 +37,8 @@ public class TaskSchedulerSystemB {
     private ZTPSPFRepository ztpspfRepository;
 
     private static final Logger logger = LoggerFactory.getLogger(TaskSchedulerSystemB.class);
-    //cron = "0 0 13 * * MON-FRI", zone = "Europe/Paris"
-    @Scheduled(fixedRate = 10000)
+
+    @Scheduled(cron = "0 0 13 * * MON-FRI", zone = "Europe/Paris")
     public void importAndPersist() {
         logger.info("Start importing CSV file");
 

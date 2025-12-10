@@ -3,6 +3,9 @@ package com.example.SystemBDemo;
 import com.example.SystemBDemo.entity.CustomerCompanyPolicyEntity;
 import com.example.SystemBDemo.entity.OutpayHeaderEntity;
 import com.example.SystemBDemo.entity.ZTPSPFEntity;
+import com.example.SystemBDemo.repository.CustomerCompanyPolicyRepository;
+import com.example.SystemBDemo.repository.OutpayHeaderRepository;
+import com.example.SystemBDemo.repository.ZTPSPFRepository;
 import com.example.SystemBDemo.service.CsvImportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +30,15 @@ public class Scheduler {
 
     @Autowired
     private CsvImportService csvImportService;
+
+    @Autowired
+    private CustomerCompanyPolicyRepository customerCompanyPolicyRepository;
+
+    @Autowired
+    private OutpayHeaderRepository outpayHeaderRepository;
+
+    @Autowired
+    private ZTPSPFRepository ztpspfRepository;
 
     private static final Logger log = LoggerFactory.getLogger(Scheduler.class);
 
@@ -57,6 +69,8 @@ public class Scheduler {
                 System.out.println(customerCompanyPolicyEntity.toString());
             }
 
+            customerCompanyPolicyRepository.saveAll(policyEntities);
+
             System.out.println();
             System.out.println();
             List<String[]> list2 = csvImportService.importCsvData(outpayFilePath, ';');
@@ -69,6 +83,8 @@ public class Scheduler {
                 outpayHeaderEntities.add(outpayHeaderEntity);
                 System.out.println(outpayHeaderEntity.toString());
             }
+
+            outpayHeaderRepository.saveAll(outpayHeaderEntities);
 
             System.out.println();
             System.out.println();
@@ -83,9 +99,8 @@ public class Scheduler {
                 System.out.println(zTPSPFEntity.toString());
             }
 
+            ztpspfRepository.saveAll(ztpspfEntities);
         }
-
-
         System.out.println("importAndPersist ended");
     }
 
@@ -108,22 +123,22 @@ public class Scheduler {
                 line[1].trim(),
                 line[2].trim(),
                 LocalDate.parse(line[3].trim(), DateTimeFormatter.BASIC_ISO_DATE).atStartOfDay(),
+                line[4].trim(),
                 line[5].trim(),
-                line[7].trim(),
-                line[8].trim(),
+                line[6].trim(),
                 line[7].trim().isBlank() ? null : LocalDate.parse(line[7].trim(), DateTimeFormatter.BASIC_ISO_DATE).atStartOfDay(),
                 BigDecimal.valueOf(Double.parseDouble(line[8].trim())),
                 line[9].trim(),
                 line[10].trim(),
+                line[11].trim(),
                 line[12].trim(),
-                line[13].trim(),
                 "",
                 "",
                 "",
                 "",
                 "",
                 "",
-                line[4].trim(),
+                "", //missing from example files
                 LocalDateTime.now());
     }
 

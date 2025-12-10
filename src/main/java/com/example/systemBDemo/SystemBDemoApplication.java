@@ -1,4 +1,4 @@
-package com.example.SystemBDemo;
+package com.example.systemBDemo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

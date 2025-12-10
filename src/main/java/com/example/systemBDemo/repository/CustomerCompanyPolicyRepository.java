@@ -1,6 +1,6 @@
-package com.example.SystemBDemo.repository;
+package com.example.systemBDemo.repository;
 
-import com.example.SystemBDemo.entity.CustomerCompanyPolicyEntity;
+import com.example.systemBDemo.entity.CustomerCompanyPolicyEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface CustomerCompanyPolicyRepository extends CrudRepository<CustomerCompanyPolicyEntity, Integer> {

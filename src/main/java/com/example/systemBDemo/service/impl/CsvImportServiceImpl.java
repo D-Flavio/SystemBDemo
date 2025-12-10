@@ -1,6 +1,6 @@
-package com.example.SystemBDemo.service.impl;
+package com.example.systemBDemo.service.impl;
 
-import com.example.SystemBDemo.service.CsvImportService;
+import com.example.systemBDemo.service.CsvImportService;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;

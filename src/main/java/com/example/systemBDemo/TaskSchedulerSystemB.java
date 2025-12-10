@@ -1,12 +1,12 @@
-package com.example.SystemBDemo;
+package com.example.systemBDemo;
 
-import com.example.SystemBDemo.entity.CustomerCompanyPolicyEntity;
-import com.example.SystemBDemo.entity.OutpayHeaderEntity;
-import com.example.SystemBDemo.entity.ZTPSPFEntity;
-import com.example.SystemBDemo.repository.CustomerCompanyPolicyRepository;
-import com.example.SystemBDemo.repository.OutpayHeaderRepository;
-import com.example.SystemBDemo.repository.ZTPSPFRepository;
-import com.example.SystemBDemo.service.CsvImportService;
+import com.example.systemBDemo.entity.CustomerCompanyPolicyEntity;
+import com.example.systemBDemo.entity.OutpayHeaderEntity;
+import com.example.systemBDemo.entity.ZTPSPFEntity;
+import com.example.systemBDemo.repository.CustomerCompanyPolicyRepository;
+import com.example.systemBDemo.repository.OutpayHeaderRepository;
+import com.example.systemBDemo.repository.ZTPSPFRepository;
+import com.example.systemBDemo.service.CsvImportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

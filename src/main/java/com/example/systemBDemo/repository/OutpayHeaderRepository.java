@@ -1,6 +1,6 @@
-package com.example.SystemBDemo.repository;
+package com.example.systemBDemo.repository;
 
-import com.example.SystemBDemo.entity.OutpayHeaderEntity;
+import com.example.systemBDemo.entity.OutpayHeaderEntity;
 import org.springframework.data.repository.CrudRepository;
 
 public interface OutpayHeaderRepository extends CrudRepository<OutpayHeaderEntity, Integer> {

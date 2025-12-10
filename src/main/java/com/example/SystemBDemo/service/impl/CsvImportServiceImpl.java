@@ -6,6 +6,8 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.exceptions.CsvException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -17,6 +19,8 @@ import java.util.List;
 @Service
 public class CsvImportServiceImpl implements CsvImportService {
 
+    private static final Logger logger = LoggerFactory.getLogger(CsvImportServiceImpl.class);
+
     //TODO problem: linebreak is being read as an entry.
     public List<String[]> importCsvData(Path filePath, char separator) {
         try (Reader reader = Files.newBufferedReader(filePath, Charset.forName("ISO-8859-2"))) {
@@ -27,9 +31,11 @@ public class CsvImportServiceImpl implements CsvImportService {
             try (CSVReader csvReader = new CSVReaderBuilder(reader).withCSVParser(parser).build()) {
                 return csvReader.readAll();
             } catch (CsvException e) {
+                logger.error(e.getMessage());
                 throw new RuntimeException(e);
             }
         } catch (IOException e) {
+            logger.error(e.getMessage());
             throw new UncheckedIOException(e);
         }
     }
@@ -38,6 +44,7 @@ public class CsvImportServiceImpl implements CsvImportService {
         try (var lines = Files.lines(Path.of(filePath.toString()))) {
             return lines.map(this::lineData).toList();
         } catch (IOException e) {
+            logger.error(e.getMessage());
             throw new UncheckedIOException(e);
         }
     }

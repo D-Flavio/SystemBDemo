@@ -8,10 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableScheduling
 public class SystemBDemoApplication {
 
-
-	public static void main(String[] args) {
+	static void main(String[] args) {
 		SpringApplication.run(SystemBDemoApplication.class, args);
-
-		System.out.println("SystemBDemo Application Started");
 	}
 }

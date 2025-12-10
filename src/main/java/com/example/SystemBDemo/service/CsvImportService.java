@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public interface CsvImportService {
 
-    public List<String[]> importCsvData(Path filePath, char separator);
+    List<String[]> importCsvData(Path filePath, char separator);
 
-    public List<String[]> importCsvDataLineByLine(Path filePath);
+    List<String[]> importCsvDataLineByLine(Path filePath);
 }

@@ -44,7 +44,7 @@ public class Scheduler {
 
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(cron = "0 12 * * ?", zone = "Europe/Paris")
     public void importAndPersist() {
         //cron = "0 12 * * ?", zone = "Europe/Paris" run every day at noon europe/paris time
 
